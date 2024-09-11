@@ -15,6 +15,9 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         super.onCreate(savedInstanceState)
     }
 
+
+
+
     override fun get_layout(): Int {
         return R.layout.activity_main
     }
