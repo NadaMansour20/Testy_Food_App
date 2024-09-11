@@ -9,6 +9,8 @@ import com.android.testy_food.databinding.ActivityMainBinding
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
