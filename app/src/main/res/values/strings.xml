@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Food_App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_your_email_to_continue">enter your email</string>
+    <string name="enter_your_password_to_continue">enter your password</string>
+    <string name="login_to_account">Login to account</string>
+    <string name="register">Register</string>
+    <string name="enter_username">enter userName</string>
+    <string name="home">Home</string>
+    <string name="favourate">Favourate</string>
+    <string name="profile">Profile</string>
+    <string name="create_new_account">Create new account</string>
+</resources>
