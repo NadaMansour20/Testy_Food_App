@@ -1,0 +1,105 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:background="@drawable/screen"
+    tools:context="com.android.food_app.fragment.DetailsFragment">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_gravity="end"
+                android:id="@+id/share_fab"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_share"
+                android:alpha="0.7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                tools:src="@drawable/child"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toBottomOf="@id/share_fab"
+                android:layout_marginTop="10dp"
+                android:id="@+id/recipe_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:fontFamily="@font/akaya_telivigala"
+                tools:text="Recipe Name"
+                android:id="@+id/recipe_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/recipe_image" />
+
+            <TextView
+                android:id="@+id/recipe_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                 tools:text="Recipe Type"
+                android:fontFamily="@font/akaya_telivigala"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recipe_name" />
+
+            <TextView
+                android:fontFamily="@font/akaya_telivigala"
+                android:id="@+id/recipe_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                 tools:text="Ingridents"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recipe_type" />
+
+            <WebView
+                android:id="@+id/recipeVideoWebView"
+                app:layout_constraintTop_toBottomOf="@+id/recipe_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+
+                android:id="@+id/recipe_instructions"
+                android:fontFamily="@font/akaya_telivigala"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                tools:text="Recipe Instructions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipeVideoWebView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:visibility="gone"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

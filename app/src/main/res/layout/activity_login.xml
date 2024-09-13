@@ -25,75 +25,75 @@
             >
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutemail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:error="@{lvm.emailError}"
-            android:hint="@string/enter_your_email_to_continue"
-            app:startIconDrawable="@drawable/ic_email"
-
-            >
-            <EditText
-                android:inputType="textEmailAddress"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_shape"
-                android:text="@={lvm.email}"
-                android:paddingStart="40dp"
-                />
+                android:layout_margin="15dp"
+                android:error="@{lvm.emailError}"
+                android:hint="@string/enter_your_email_to_continue"
+                app:startIconDrawable="@drawable/ic_email"
 
-        </com.google.android.material.textfield.TextInputLayout>
+                >
+                <EditText
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_shape"
+                    android:text="@={lvm.email}"
+                    android:paddingStart="40dp"
+                    />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:hint="@string/enter_your_password_to_continue"
-            android:error="@{lvm.passError}"
-            app:startIconDrawable="@drawable/ic_pass"
-            >
-            <EditText
-                android:id="@+id/password"
-                android:inputType="textPassword"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_shape"
-                android:text="@={lvm.pass}"
-                android:paddingStart="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:hint="@string/enter_your_password_to_continue"
+                android:error="@{lvm.passError}"
+                app:startIconDrawable="@drawable/ic_pass"
+                >
+                <EditText
+                    android:id="@+id/password"
+                    android:inputType="textPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_shape"
+                    android:text="@={lvm.pass}"
+                    android:paddingStart="40dp"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/BUTTON"
+                android:padding="20dp"
+                android:onClick="@{()->lvm.login()}"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/login_to_account"
                 />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/BUTTON"
-            android:padding="20dp"
-            android:onClick="@{()->lvm.login()}"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/login_to_account"
-            />
-        <Button
-            android:id="@+id/new_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/tranparent"
-            android:text="@string/create_new_account"
-            android:padding="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            />
+            <Button
+                android:id="@+id/new_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/tranparent"
+                android:text="@string/create_new_account"
+                android:padding="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
