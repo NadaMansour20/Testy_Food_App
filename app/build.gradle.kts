@@ -47,7 +47,7 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -73,8 +73,8 @@ dependencies {
 
 
 //navigation
-    implementation("androidx.navigation:navigation-fragment:2.7.7")
-    implementation("androidx.navigation:navigation-ui:2.7.7")
+    implementation("androidx.navigation:navigation-fragment:2.8.0")
+    implementation("androidx.navigation:navigation-ui:2.8.0")
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     //gson converter
@@ -93,8 +93,9 @@ dependencies {
 //Fire store
     implementation("com.google.firebase:firebase-firestore")
 
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.5.3")
-    implementation( "androidx.navigation:navigation-ui-ktx:2.5.3")
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.8.0")
+    implementation( "androidx.navigation:navigation-ui-ktx:2.8.0")
 
+    implementation ("com.google.android.material:material:1.12.0")
 
 }

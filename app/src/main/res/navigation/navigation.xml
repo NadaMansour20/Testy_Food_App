@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
-        android:name="com.android.food_app.fragment.UserProfileFragment"
+        android:name="com.android.food_app.ui.profile.UserProfileFragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" />
     <fragment

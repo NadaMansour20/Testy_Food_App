@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 open class BaseViewModel : ViewModel() {
 
 
+
+    val showProgress=MutableLiveData<Boolean>()
     val showDilog=MutableLiveData<String>()
 
 }

@@ -41,12 +41,14 @@ class RegisterViewModel : BaseViewModel() {
 
     fun signUp(){
 
+        showProgress.value=true
         auth.createUserWithEmailAndPassword(Email.get()!!,Pass.get()!!).addOnCompleteListener {
             if(!it.isSuccessful){
                 Log.e("register",it.exception?.localizedMessage!!)
-                showDilog.value=it.exception?.localizedMessage
+                showDilog.value=it.exception?.localizedMessage+" :("
             }
             else{
+                showProgress.value=false
                 Log.e("register","successfullyyyyyyyyyyy")
 
                 addUser(it.result.user!!.uid)
@@ -72,7 +74,7 @@ class RegisterViewModel : BaseViewModel() {
 
         }, {
             //onFailer listener
-            showDilog.value=it.localizedMessage
+            showDilog.value=it.localizedMessage+" :("
         })
 
 

@@ -5,7 +5,6 @@
     android:background="@drawable/base_baground"
     android:layout_height="match_parent">
 
-
         <TextView
 
             android:id="@+id/tv_eat_today"
