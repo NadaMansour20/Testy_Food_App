@@ -5,14 +5,20 @@ import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.ObservableField
 import com.android.food_app.base.BaseViewModel
+import com.android.food_app.firebase.User
+import com.android.food_app.firebase.signInToFirebase
 import com.android.testy_food.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.toObject
 import com.google.firebase.ktx.Firebase
 
 
@@ -48,11 +54,31 @@ class LoginViewModel:BaseViewModel() {
             }
             else{
                 Log.e("login","successfullyyyyyyyyyyy")
-                showDilog.value="Login Successfully :)"
+               checkAccount(it.result.user!!.uid)
 
             }
         }
 
+    }
+
+    fun checkAccount(userId:String){
+
+        signInToFirebase(userId, {
+            //onSuccess listener
+
+            val returnUser=it.toObject(User::class.java)
+            if(returnUser==null) {
+                showDilog.value="Invalid Email or Password"
+            }
+            else{
+                showDilog.value = "Login Successfully :)"
+
+            }
+
+        }, {
+            showDilog.value=it.localizedMessage
+
+        })
     }
 
     fun updateUi(account: GoogleSignInAccount) {

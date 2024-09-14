@@ -11,4 +11,8 @@
     <string name="favourate">Favourate</string>
     <string name="profile">Profile</string>
     <string name="create_new_account">Create new account</string>
+    <string name="today_s_best_meals">Today`s best meals</string>
+    <string name="categories">Categories</string>
+    <string name="what_would_you_like_to_neat_today">What would you like to \neat today?</string>
+    <string name="favourite_items">Favourite Items</string>
 </resources>

@@ -30,6 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class DetailsFragment : Fragment() {
+
     private val args:DetailsFragmentArgs by navArgs()
    private lateinit var binding: FragmentDetailsBinding
    private lateinit var apiservice: ApiService
@@ -80,9 +81,6 @@ class DetailsFragment : Fragment() {
     }
     private fun fetchRecipeById(id: String) {
         apiservice.getRecipeById(id).enqueue(object : Callback<recipeclass> {
-
-
-
 
             override fun onResponse(call: Call<recipeclass>, response: Response<recipeclass>) {
                 if (response.isSuccessful) {

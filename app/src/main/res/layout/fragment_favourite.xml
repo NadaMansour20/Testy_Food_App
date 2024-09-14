@@ -9,11 +9,12 @@
     tools:context="com.android.food_app.fragment.FavouriteFragment">
     <TextView
         android:textSize="25sp"
-        android:text="Favourite Items"
+        android:text="@string/favourite_items"
         android:gravity="center"
         android:fontFamily="@font/akaya_telivigala"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_fav_meals"
         android:layout_marginTop="20dp"

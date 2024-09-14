@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.auth.login.LoginActivity"
-        android:background="@drawable/grediant"
+        android:background="@drawable/base_baground"
         >
 
         <LinearLayout
@@ -30,8 +30,7 @@
                 android:hint="@string/enter_username"
                 android:error="@{rvm.userNameError}"
                 >
-
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/button_shape"
@@ -51,8 +50,7 @@
                 app:startIconDrawable="@drawable/ic_email"
 
               >
-
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/button_shape"
@@ -72,8 +70,7 @@
                 android:hint="@string/enter_your_password_to_continue"
                 app:startIconDrawable="@drawable/ic_pass"
                 >
-
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"

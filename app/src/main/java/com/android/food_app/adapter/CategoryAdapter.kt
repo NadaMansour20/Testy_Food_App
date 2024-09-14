@@ -16,6 +16,7 @@ class CategoryAdapter(
 ) : Adapter<CategoryAdapter.RecipeViewHolder>() {
     private lateinit var binding: ItemCategoryBinding
 
+
     inner class RecipeViewHolder(binding:ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
         private val categoryName: TextView=binding.categoryName
         fun bind(category: Category) {
@@ -36,7 +37,11 @@ class CategoryAdapter(
     override fun onBindViewHolder(holder: CategoryAdapter.RecipeViewHolder, position: Int) {
         val category = categories[position]
         holder.bind(category)
+
+
     }
 
     override fun getItemCount(): Int =categories.size
+
+
 }

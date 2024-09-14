@@ -65,8 +65,6 @@ data class Category(
 
 )
 interface ApiService {
-    @GET("api/json/v1/1/search.php?s=")
-    fun getRecipes(): Call<recipeclass>
 
     @GET("api/json/v1/1/lookup.php")
     fun getRecipeById(@Query("i") id: String): Call<recipeclass>
@@ -76,6 +74,10 @@ interface ApiService {
 
     @GET("api/json/v1/1/filter.php")
     fun getRecipesByCategory(@Query("c") category: String): Call<recipeclass>
+
+
+    @GET("api/json/v1/1/search.php")
+    fun getRecipesBySearch(@Query("s") mealSearch:String):Call<recipeclass>
 
 
 }

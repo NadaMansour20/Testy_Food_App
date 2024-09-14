@@ -4,8 +4,14 @@ import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import com.android.food_app.base.BaseViewModel
+import com.android.food_app.firebase.User
+import com.android.food_app.firebase.addUserToFirestore
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import java.net.PasswordAuthentication
 
 class RegisterViewModel : BaseViewModel() {
 
@@ -41,11 +47,35 @@ class RegisterViewModel : BaseViewModel() {
                 showDilog.value=it.exception?.localizedMessage
             }
             else{
-                showDilog.value="Register Successfully :)"
                 Log.e("register","successfullyyyyyyyyyyy")
+
+                addUser(it.result.user!!.uid)
 
             }
         }
+
+    }
+
+
+    fun addUser(userId:String){
+
+        val new_user=User(
+            userId=userId,
+            userName=userName.get(),
+            email = Email.get(),
+            pass = Pass.get()
+
+        )
+        addUserToFirestore(new_user, {
+                                     //onSuccess listener
+            showDilog.value="Register Successfully :)"
+
+        }, {
+            //onFailer listener
+            showDilog.value=it.localizedMessage
+        })
+
+
 
     }
 

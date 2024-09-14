@@ -41,10 +41,12 @@ class RegisterFragment :BaseFragment<RegisterViewModel, FragmentRegisterBinding>
                 alertDialog.setCancelable(false)
                 alertDialog.setPositiveButton("ok"){ dialogInterface: DialogInterface, i: Int ->
 
-                    dialogInterface.cancel()
+                    if(massege=="Register Successfully :)") {
 
-                    val intent=Intent(requireContext(),LoginActivity::class.java)
-                    startActivity(intent)
+                        val intent = Intent(requireContext(), LoginActivity::class.java)
+                        startActivity(intent)
+                    }
+                    dialogInterface.cancel()
                 }
 
                 alertDialog.create().show()

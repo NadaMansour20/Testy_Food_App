@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.food_app.adapter.CategoryAdapter
 import com.android.food_app.adapter.ListRecipeAdapter
 import com.android.food_app.api.ApiService
+import com.android.food_app.api.Category
 import com.android.food_app.api.CategoryResponse
 import com.android.food_app.api.recipeclass
 import com.android.testy_food.R
@@ -26,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeFragment : Fragment() {
     private lateinit var recyclerViewCategory: RecyclerView
-    private lateinit var adapterCategory: CategoryAdapter
+    private  var adapterCategory: CategoryAdapter?=null
     private lateinit var binding: FragmentHomeBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ListRecipeAdapter
@@ -42,8 +44,9 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding=FragmentHomeBinding.inflate(inflater,container,false)
+
 
         recyclerViewCategory=binding.rvCategory
         recyclerViewCategory.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
@@ -51,7 +54,7 @@ class HomeFragment : Fragment() {
         recyclerView=binding.rvRecipes
         recyclerView.layoutManager=GridLayoutManager(context,2)
         fetchCategories()
-        fetchRecipes()
+        search()
         return binding.root
     }
     private fun fetchCategories() {
@@ -79,8 +82,8 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun fetchRecipes() {
-        apiService.getRecipes().enqueue(object : Callback<recipeclass> {
+    private fun fetchRecipes(query:String) {
+        apiService.getRecipesBySearch(query).enqueue(object : Callback<recipeclass> {
 
 
             override fun onResponse(call: Call<recipeclass>, response: Response<recipeclass>) {
@@ -101,6 +104,34 @@ class HomeFragment : Fragment() {
                 Toast.makeText(context, "Check Your Internet Connection", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    fun search(){
+        // the action that taken when click on search_view
+        binding.search.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                fetchRecipes(query!!)
+                recyclerView=binding.rvRecipes
+
+
+                return true
+
+
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if(newText.isNullOrBlank()){
+
+                    fetchRecipes("")
+
+                }
+                return false
+
+            }
+
+        })
+
     }
 
 }
