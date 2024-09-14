@@ -1,12 +1,14 @@
 package com.android.food_app.ui.auth.login
 
 import android.app.Activity
+import android.content.Intent
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.ObservableField
 import com.android.food_app.base.BaseViewModel
 import com.android.food_app.firebase.User
 import com.android.food_app.firebase.signInToFirebase
+import com.android.food_app.ui.main.MainActivity
 import com.android.testy_food.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -45,6 +47,7 @@ class LoginViewModel:BaseViewModel() {
 
     fun signIn(){
 
+        showProgress.value=true
         auth.signInWithEmailAndPassword(Email.get()!!,Pass.get()!!).addOnCompleteListener {
             if(!it.isSuccessful){
                 Log.e("login",it.exception?.localizedMessage!!)
@@ -53,6 +56,7 @@ class LoginViewModel:BaseViewModel() {
 
             }
             else{
+                showProgress.value=false
                 Log.e("login","successfullyyyyyyyyyyy")
                checkAccount(it.result.user!!.uid)
 
@@ -68,7 +72,7 @@ class LoginViewModel:BaseViewModel() {
 
             val returnUser=it.toObject(User::class.java)
             if(returnUser==null) {
-                showDilog.value="Invalid Email or Password"
+                showDilog.value="Invalid Email or Password :("
             }
             else{
                 showDilog.value = "Login Successfully :)"
@@ -80,16 +84,22 @@ class LoginViewModel:BaseViewModel() {
 
         })
     }
-
+    // This method handles Firebase authentication with the Google account
     fun updateUi(account: GoogleSignInAccount) {
-
+        showProgress.value=true
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d("GoogleSignIn", "Sign-in successful")
+
+                    showDilog.value = "Login Successfully :)"
+                    showProgress.value=false
                 } else {
                     Log.e("GoogleSignIn", "Sign-in failed", task.exception)
+
+                    showDilog.value = "Sign-in failed"+task.exception
+
                 }
             }
     }

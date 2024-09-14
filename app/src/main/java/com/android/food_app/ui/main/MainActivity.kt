@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.android.food_app.base.BaseActivity
 import com.android.food_app.fragment.FavouriteFragment
 import com.android.food_app.fragment.HomeFragment
-import com.android.food_app.fragment.UserProfileFragment
+import com.android.food_app.ui.profile.UserProfileFragment
 import com.android.testy_food.R
 import com.android.testy_food.databinding.ActivityMainBinding
 
@@ -14,7 +14,7 @@ class MainActivity :BaseActivity<MainViewModel,ActivityMainBinding>() {
 
 
      var homeFragment= HomeFragment()
-     var profileFragment=UserProfileFragment()
+     var profileFragment= UserProfileFragment()
      var favouriteFragment= FavouriteFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

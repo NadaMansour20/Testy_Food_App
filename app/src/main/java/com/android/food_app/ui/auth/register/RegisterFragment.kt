@@ -1,5 +1,6 @@
 package com.android.food_app.ui.auth.register
 
+import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
@@ -42,16 +43,38 @@ class RegisterFragment :BaseFragment<RegisterViewModel, FragmentRegisterBinding>
                 alertDialog.setPositiveButton("ok"){ dialogInterface: DialogInterface, i: Int ->
 
                     if(massege=="Register Successfully :)") {
-
+                        hideProgressLoading()
                         val intent = Intent(requireContext(), LoginActivity::class.java)
                         startActivity(intent)
+
                     }
+                    showLoading()
                     dialogInterface.cancel()
                 }
 
                 alertDialog.create().show()
 
         })
+        viewModel.showProgress.observe(viewLifecycleOwner, Observer {
+            if(it){
+                showLoading()
+            }
+            else hideProgressLoading()
+        })
+    }
+
+    var progress: ProgressDialog?=null
+    fun showLoading(){
+        progress= ProgressDialog(requireContext())
+        progress?.setMessage("Loading...")
+        progress?.setCancelable(false)
+        progress?.show()
+
+    }
+    fun hideProgressLoading(){
+        progress?.dismiss()
+        progress=null
+
     }
 
 

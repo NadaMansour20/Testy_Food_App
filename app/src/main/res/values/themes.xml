@@ -14,5 +14,11 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+        <style name="CircularImageShape">
+            <item name="cornerFamily">rounded</item>
+            <item name="cornerSize">50%</item> <!-- أو الحجم الذي يناسبك -->
+        </style>
+
+
 
 </resources>
