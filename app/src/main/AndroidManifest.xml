@@ -16,6 +16,7 @@
         android:theme="@style/Theme.Food_App">
         <activity
             android:name="com.android.food_app.ui.main.MainActivity"
+            android:theme="@style/Theme.Food_App"
             android:exported="false" />
         <activity
             android:name="com.android.food_app.ui.auth.login.LoginActivity"

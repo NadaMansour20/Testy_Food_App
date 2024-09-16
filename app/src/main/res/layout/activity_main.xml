@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="mvm"
+            type="com.android.food_app.ui.main.MainViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

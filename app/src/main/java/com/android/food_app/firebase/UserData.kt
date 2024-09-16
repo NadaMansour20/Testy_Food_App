@@ -15,3 +15,18 @@ data class User(
         const val userTable = "user"
     }
 }
+
+
+data class FavouritFood(
+
+    var id:String?=null,
+    val imgUrl:String?=null,
+    val foodName:String?=null,
+    val youtubeUrl:String?=null,
+
+    ){
+    companion object {
+        const val favouritTable = "favouriteFood"
+    }
+
+}

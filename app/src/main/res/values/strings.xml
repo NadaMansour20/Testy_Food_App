@@ -15,4 +15,9 @@
     <string name="categories">Categories</string>
     <string name="what_would_you_like_to_neat_today">What would you like to \neat today?</string>
     <string name="favourite_items">Favourite Items</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">LogOut</string>
+    <string name="your_user_name">Your User Name</string>
+    <string name="your_email">your email</string>
+    <string name="your_password">your password</string>
 </resources>

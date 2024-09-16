@@ -72,3 +72,21 @@ fun updateUserDataInFirestore(
         .addOnFailureListener(onFailureListener)
 }
 
+
+fun addFavouritFood(
+    favouritFood: FavouritFood,
+    onSuccessListener: OnSuccessListener<Void>,
+    onFailureListener: OnFailureListener
+) {
+    val fireStore = Firebase.firestore
+    val collection = fireStore.collection(FavouritFood.favouritTable)
+
+    val document = collection.document()
+
+    favouritFood.id = document.id
+    document.set(favouritFood).addOnSuccessListener(onSuccessListener)
+        .addOnFailureListener(onFailureListener)
+
+
+}
+
